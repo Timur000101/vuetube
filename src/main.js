@@ -8,6 +8,8 @@ import router from './router'
 
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
+window.axios = require('axios');
+// Vue.prototype.$axios = axios
 
 new Vue({
   store,
