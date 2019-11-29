@@ -5,11 +5,13 @@ import App from './App.vue'
 import store from './store'
 import vuetify from './plugins/vuetify';
 import router from './router'
+import dateFilter from '@/filtres/date.filter'
 
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
 window.axios = require('axios');
 // Vue.prototype.$axios = axios
+Vue.filter('date', dateFilter)
 
 new Vue({
   store,

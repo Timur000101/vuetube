@@ -1,15 +1,13 @@
 <template>
   <div class="container">
-    <nav>
-      <ul class="pagination justify-content-end">
+      <ul class="d-flex justify-end" style="list-style: none;">
         <li class="page-item" v-bind:class="{ disabled: prevPageToken === undefined }">
-          <a @click="prevPage" class="page-link" href="#">Previous</a>
+          <v-btn @click="prevPage" class="page-link primary" href="#">Previous</v-btn>
         </li>
-        <li class="page-item" v-bind:class="{ disabled: nextPageToken === undefined }">
-          <a @click="nextPage" class="page-link" href="#">Next</a>
+        <li class="page-item ml-2" v-bind:class="{ disabled: nextPageToken === undefined }">
+          <v-btn @click="nextPage" class="page-link red" href="#">Next</v-btn>
         </li>
       </ul>
-    </nav>
   </div>
 </template>
 

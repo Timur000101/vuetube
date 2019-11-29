@@ -1,26 +1,29 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import LoginPage from '../views/LoginPage.vue'
-import Authorization from '../views/Authorization.vue'
-
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/home',
     name: 'home',
-    component: Home
+    meta: {layout: 'main'},
+    component: () => import('../views/Home.vue')
   },
   {
     path: '/',
     name: 'login',
-    component: LoginPage
+    component: () => import('../views/LoginPage.vue')
   },
   {
     path: '/authorization',
     name: 'authorization',
-    component: Authorization
+    component: () => import('../views/Authorization.vue')
+  }, 
+  {
+    path: '/videoDetail/:id',
+    name: 'videoDetail',
+    meta: {layout: 'main'},
+    component: () => import('../views/VideoDetail.vue')
   }
 ]
 

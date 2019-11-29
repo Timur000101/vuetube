@@ -15,13 +15,11 @@
 </template>
 
 <script>
-import VideoListItem from './VideoListItem';
 import VideoGridItem from './VideoGridItem';
 
-export default {
+export default {  
   name: 'SearchResults',
   components: {
-    VideoListItem,
     VideoGridItem
   },
   data() {

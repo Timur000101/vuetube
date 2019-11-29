@@ -1,13 +1,12 @@
 <template>
   <div class="container" color="white">
-    <v-form :lazy-validation="lazy">
+    <v-form>
       <div class="input-group">
         <v-row>
           <v-text-field
             v-model="searchString"
             @keydown.13.prevent="parseSearchString"
             label="Search ..."
-            dark="false"
           ></v-text-field>
           <v-btn @click="parseSearchString" class="red ml-10" label="Search">Search</v-btn>
         </v-row>
@@ -21,7 +20,8 @@ export default {
   name: 'SearchForm',
   data() {
     return {
-      searchString: ''
+      searchString: '',
+      hover: false,
     };
   },
   methods: {
