@@ -6,7 +6,9 @@ import store from './store'
 import vuetify from './plugins/vuetify';
 import router from './router'
 import dateFilter from '@/filtres/date.filter'
-
+import VueFilterDateFormat from 'vue-filter-date-format';
+ 
+Vue.use(VueFilterDateFormat);
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
 window.axios = require('axios');

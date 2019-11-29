@@ -29,7 +29,6 @@
             <v-form
               ref="form"
               v-model="valid"
-              :lazy-validation="lazy"
               class="pa-10"
             >
               <v-text-field

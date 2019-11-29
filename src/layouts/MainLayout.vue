@@ -103,6 +103,11 @@ export default {
     }, 1000 )
     
   },
+  methods: {
+    logout () {
+      this.$router.push('/')
+    },
+  }
 
 }
 </script>

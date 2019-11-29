@@ -52,9 +52,6 @@ import Pagination from '../components/Pagination';
       // key: "AIzaSyAibuqCPE9Y5O_FlyGSEqxl1iXa8vUl9U4",
     }),
     methods: {
-      logout () {
-        this.$router.push('/')
-      },
       search(searchParams) {
         this.reformattedSearchString = searchParams.join(' ');
         this.api.q = searchParams.join('+');

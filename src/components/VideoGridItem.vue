@@ -8,7 +8,7 @@
         <div class="card-body" style="margin-left: 20px; padding-top: 30px;">
           <h5 class="card-title">{{ video.snippet.title }}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{ video.snippet.channelTitle }} 
-            | {{ video.snippet.publishedAt | formatDate }}</h6>
+            | {{ video.snippet.publishedAt}}</h6>
           <p class="card-text">{{ video.snippet.description }}</p>
         </div>
       </v-card>
@@ -28,8 +28,5 @@ export default {
       this.$router.push({name: 'videoDetail', params: {id: id}})
     }
   },
-  mounted() {
-
-  }
 };
 </script>
