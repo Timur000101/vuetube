@@ -53,7 +53,7 @@
                 :disabled="!valid"
                 color="success"
                 class="mr-4"
-                @click="validate"
+                @click="validate()"
               >
                 Log in
               </v-btn>
@@ -103,10 +103,13 @@ export default{
     }),
     methods: {
       validate () {
-        if (this.$refs.form.validate()) {
-          this.snackbar = true
-          this.$router.push('/home')
-        }
+        axios.get('http://localhost:8000/userapi/users/')
+        .then((r) => {
+          if (r.data.results[r.data.results.length - 1].email == this.email && this.$refs.form.validate()) {
+            this.snackbar = true
+            this.$router.push('/home')
+          }
+        })
       },
       reset () {
         this.$refs.form.reset()

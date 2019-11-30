@@ -36,7 +36,7 @@
     </div>
 
     <div>
-      <SearchResults
+      <DetailSearchResults
         v-if="videos.length > 0"
         v-bind:videos="videos"
         v-bind:reformattedSearchString="reformattedSearchString"
@@ -54,7 +54,8 @@
 
 <script>
 import VideoGridItem from '@/components/VideoGridItem';
-import SearchResults from '../components/SearchResults';
+// import SearchResults from '../components/SearchResults';
+import DetailSearchResults from '@/components/DetailSearchResults'
 export default {
   props: ['video', 'reformattedSearchString'],
   data (){
@@ -70,7 +71,8 @@ export default {
   },
   components: {
     VideoGridItem,
-    SearchResults
+    // SearchResults,
+    DetailSearchResults
   },
   mounted(){
     axios.get("https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" + this.id + "&key=" + this.key)

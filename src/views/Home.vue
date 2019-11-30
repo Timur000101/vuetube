@@ -73,10 +73,10 @@ import Pagination from '../components/Pagination';
       getData(apiUrl) {
         axios
           .get(apiUrl)
-          .then(res => {
-            this.videos = res.data.items;
-            this.api.prevPageToken = res.data.prevPageToken;
-            this.api.nextPageToken = res.data.nextPageToken;
+          .then(r => {
+            this.videos = r.data.items;
+            this.api.prevPageToken = r.data.prevPageToken;
+            this.api.nextPageToken = r.data.nextPageToken;
           })
           .catch(error => console.log(error));
       }

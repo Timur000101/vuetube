@@ -21,7 +21,6 @@
             <v-form
               ref="form"
               v-model="valid"
-              :lazy-validation="lazy"
               class="pa-10"
             >
               <v-text-field
@@ -74,17 +73,9 @@
                 :disabled="!valid"
                 color="success"
                 class="mr-4"
-                @click="register"
+                @click="register()"
               >
                 Register
-              </v-btn>
-
-              <v-btn
-                color="error"
-                class="mr-4"
-                @click="reset"
-              >
-                Reset Form
               </v-btn>
             </v-form>
           </v-card>
@@ -101,6 +92,7 @@ export default {
       show1: false,
       password: '',
       password2: '',
+      checkbox: '',
       valid: true,
       name: '',
       rules: {
@@ -122,6 +114,14 @@ export default {
     }),
     methods: {
       register() {
+        axios.post('http://localhost:8000/userapi/users/', {
+          email: this.email,
+          name: this.name,
+          password: this.password
+        })
+        .then((r) => {
+          console.log(r)
+        })
         this.$router.push('/')
       }
     },

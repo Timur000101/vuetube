@@ -2,7 +2,7 @@
   <v-app id="inspire" >
     <v-navigation-drawer v-model="drawer" app clipped color="grey lighten-2">
       <v-list dense>
-        <v-list-item v-for="item in items" :key="item.text" link>
+        <v-list-item v-for="item in items" :to="item.url" :key="item.url" :exact="item.exact"  link>
           <v-list-item-action>
             <v-icon color="black">{{ item.icon }}</v-icon>
           </v-list-item-action>
@@ -55,6 +55,7 @@
           color="white"
           hide-details
         />
+        <h4 class="ml-5">Welcome {{this.user}}!</h4>
         <div class="my-2 ma-10">
           <v-btn color="white" smal @click.prevent="logout">
             <p class="black--text pt-2">Log out</p>
@@ -79,15 +80,15 @@ export default {
     sourse: String,
   },
   data: () => ({
+    user: '',
     date: new Date(),
     interval: null,
     drawer: null,
       items: [
-        { icon: 'trending_up', text: 'Most Popular' },
-        { icon: 'subscriptions', text: 'Subscriptions' },
+        { icon: 'home', text: 'Home', url: '/home', exact: true},
         { icon: 'history', text: 'History' },
-        { icon: 'featured_play_list', text: 'Playlists' },
         { icon: 'watch_later', text: 'Watch Later' },
+        { icon: 'person', text: 'Account', url: '/account'}
       ],
       items2: [
         { picture: 28, text: 'Joseph' },
@@ -101,6 +102,11 @@ export default {
     this.interval = setInterval(() => {
       this.date = new Date();
     }, 1000 )
+
+    axios.get('http://localhost:8000/userapi/users/')
+    .then((r) => {
+      this.user = r.data.results[r.data.results.length - 1].name
+    })
     
   },
   methods: {
